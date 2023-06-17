@@ -31,34 +31,162 @@ html {
    --radius: 10px;
    box-sizing: border-box;
    margin: 0;
+   min-height: 100vh;
+   min-height: 100dvh;
 
    background: var(--neutral-200);
 }
 
-.bars_wrapper {
+body {
    display: flex;
    justify-content: center;
+   align-items: center;
+}
+
+header,
+main {
+   margin: 1rem;
+}
+
+.content {
+   width: 100%;
+   height: fit-content;
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem;
+   border-radius: 10px;
+   background: var(--primary-100);
+}
+
+.balance_details {
+   font-size: .9rem;
+   color: var(--neutral-100);
+}
+
+.balance_details h2 {
+   margin: 0;
+}
+
+figure {
+   margin: 0;
+}
+
+figure img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   object-position: center center;
+}
+
+main {
+   padding: 1rem;
+   background: var(--neutral-100);
+   border-radius: 15px;
+}
+
+main h1 {
+   color: var(--neutral-400);
+   font-size: 1.3rem;
+   margin: 0 0 3rem 0;
+}
+
+.bars_wrapper {
+   display: flex;
+   justify-content: space-between;
    align-items: flex-end;
-   gap: 0 .8rem;
+   height: fit-content;
 }
 
 .bar-group {
+   position: relative;
    display: flex;
    flex-direction: column;
    align-items: center;
-   background: green;
+   gap: 10px 0;
 }
 
 .bar {
-   width: 1.8rem;
+   width: 1.9rem;
    height: calc(var(--bigger) * var(--bar-size));
    background: var(--primary-100);
    border-radius: 5px;
+   cursor: pointer;
+}
+
+.bar:hover::after {
+   content: attr(data-bar-size);
+   position: absolute;
+   top: -2rem;
+   left: -.5rem;
+   right: -.5rem;
+   display: grid;
+   place-content: center;
+   font-size: .7rem;
+   font-weight: bold;
+   padding: 5px 10px;
+   color: var(--neutral-100);
+   background: var(--neutral-400);
+   border-radius: 5px;
+   z-index: 100;
+}
+
+.day {
+   font-size: .7rem;
+   color: var(--neutral-300);
 }
 
 .bigger {
    background: var(--primary-200);
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+main hr {
+   border: 0;
+   width: 100%;
+   height: 2q;
+   border-radius: 25vw;
+   background: var(--neutral-200);
+}
+
+.month_details {
+   display: flex;
+   justify-content: space-between;
+   margin: 0;
+}
+
+:where(.month-total, .last-month) span {
+   font-size: .8rem;
+   color: var(--neutral-300);
+}
+
+:where(.month-total, .last-month) h3 {
+   color: var(--neutral-400);
+   margin: 0;
+}
+
+.month-total,
+.last-month {
+   display: inherit;
+   flex-direction: column;
+}
+
+.month-total {
+   align-items: center;
+   gap: 5px;
+}
+
+.month-total h3 {
+   font-size: 1.5rem;
+}
+
+.last-month {
+   align-items: flex-end;
+   justify-content: flex-end;  
+}
+
+.last-month h3 {
+   font-size: .9rem;
+}

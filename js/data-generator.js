@@ -19,6 +19,7 @@ jsonData.forEach(group => {
    var bar = document.createElement("div");
    calculateSize(group.amount)==1?bar.classList.add("bigger", "bar"):bar.classList.add("bar");
    bar.style.setProperty("--bar-size", calculateSize(group.amount));
+   bar.setAttribute("data-bar-size", `$${group.amount}`);
 
    barContainer[i].appendChild(bar);
    barContainer[i].appendChild(dayLabel);
