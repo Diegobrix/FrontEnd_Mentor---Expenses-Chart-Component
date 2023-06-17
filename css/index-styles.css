@@ -35,5 +35,30 @@ html {
    background: var(--neutral-200);
 }
 
+.bars_wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   gap: 0 .8rem;
+}
+
+.bar-group {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: green;
+}
+
+.bar {
+   width: 1.8rem;
+   height: calc(var(--bigger) * var(--bar-size));
+   background: var(--primary-100);
+   border-radius: 5px;
+}
+
+.bigger {
+   background: var(--primary-200);
+}
+
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
